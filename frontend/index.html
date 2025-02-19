@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Random Password Generator</title>
+  <style>
+    /* Reset some basic elements */
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #74ABE2, #5563DE);
+      color: #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      max-width: 400px;
+      width: 90%;
+      text-align: center;
+    }
+
+    h1 {
+      margin-bottom: 1rem;
+      font-size: 1.75rem;
+      color: #5563DE;
+    }
+
+    .password-section {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+
+    #password {
+      flex: 1;
+      padding: 0.75rem;
+      font-size: 1.2rem;
+      border: 2px solid #ddd;
+      border-radius: 5px 0 0 5px;
+      outline: none;
+    }
+
+    #copy-btn {
+      padding: 0.75rem 1rem;
+      font-size: 1rem;
+      border: none;
+      background-color: #5563DE;
+      color: #fff;
+      cursor: pointer;
+      border-radius: 0 5px 5px 0;
+      transition: background-color 0.3s;
+    }
+
+    #copy-btn:hover {
+      background-color: #4552b5;
+    }
+
+    .options {
+      text-align: left;
+      margin-bottom: 1rem;
+    }
+
+    .options label {
+      display: block;
+      margin: 0.5rem 0 0.2rem;
+      font-weight: bold;
+    }
+
+    .options input[type="number"] {
+      width: 100%;
+      padding: 0.5rem;
+      border: 2px solid #ddd;
+      border-radius: 5px;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+
+    .checkbox-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 1rem;
+    }
+
+    .checkbox-item {
+      display: flex;
+      align-items: center;
+      width: 48%;
+    }
+
+    .checkbox-item input {
+      margin-right: 0.5rem;
+    }
+
+    .generate-btn {
+      background-color: #74ABE2;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      color: #fff;
+      font-size: 1.1rem;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .generate-btn:hover {
+      background-color: #5aa0cf;
+    }
+
+    @media (max-width: 400px) {
+      .checkbox-item {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Random Password Generator</h1>
+    <div class="password-section">
+      <input type="text" id="password" readonly>
+      <button id="copy-btn" onclick="copyPassword()">Copy</button>
+    </div>
+    <div class="options">
+      <label for="length">Password Length:</label>
+      <input type="number" id="length" min="4" max="32" value="12">
+      <div class="checkbox-group">
+        <div class="checkbox-item">
+          <input type="checkbox" id="uppercase" checked>
+          <label for="uppercase">Include Uppercase</label>
+        </div>
+        <div class="checkbox-item">
+          <input type="checkbox" id="lowercase" checked>
+          <label for="lowercase">Include Lowercase</label>
+        </div>
+        <div class="checkbox-item">
+          <input type="checkbox" id="numbers" checked>
+          <label for="numbers">Include Numbers</label>
+        </div>
+        <div class="checkbox-item">
+          <input type="checkbox" id="symbols">
+          <label for="symbols">Include Symbols</label>
+        </div>
+      </div>
+    </div>
+    <button class="generate-btn" onclick="generatePassword()">Generate Password</button>
+  </div>
+
+  <script>
+    function generatePassword() {
+      const length = document.getElementById('length').value;
+      const uppercase = document.getElementById('uppercase').checked;
+      const lowercase = document.getElementById('lowercase').checked;
+      const numbers = document.getElementById('numbers').checked;
+      const symbols = document.getElementById('symbols').checked;
+
+      const queryParams = `?length=${length}&uppercase=${uppercase}&lowercase=${lowercase}&numbers=${numbers}&symbols=${symbols}`;
+
+      // Assuming backend and frontend are hosted together; adjust the URL if needed
+      fetch('/generate' + queryParams)
+        .then(response => {
+          if (!response.ok) {
+            return response.json().then(err => {
+              throw new Error(err.error || "Failed to generate password");
+            });
+          }
+          return response.json();
+        })
+        .then(data => {
+          document.getElementById('password').value = data.password;
+        })
+        .catch(err => {
+          alert(err.message);
+        });
+    }
+
+    function copyPassword() {
+      const passwordField = document.getElementById('password');
+      passwordField.select();
+      passwordField.setSelectionRange(0, 99999); // For mobile devices
+      try {
+        document.execCommand('copy');
+        alert('Password copied to clipboard!');
+      } catch (err) {
+        alert('Failed to copy password!');
+      }
+    }
+
+    // Generate a password on page load
+    window.onload = generatePassword;
+  </script>
+</body>
+
+</html>

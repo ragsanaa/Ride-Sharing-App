@@ -21,8 +21,8 @@ A simple web application that generates secure random passwords based on user-sp
 1. Clone the repository
 
 ```bash
-git clone https://github.com/yourusername/random-password-generator.git
-cd random-password-generator
+git clone https://github.com/yourusername/Ride-Sharing-App.git
+cd Ride-Sharing-App
 ```
 
 2. Create and activate the virtual environment

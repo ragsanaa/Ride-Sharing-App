@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Driver Dashboard - CarPool Connect</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../css/style.css" rel="stylesheet">
+</head>
+
+<body>
+  <!-- Navigation (same as index.html) -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container">
+      <a class="navbar-brand" href="../index.html">CarPool Connect</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="../index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="ride-search.html">Find a Ride</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="driver-dashboard.html">Offer a Ride</a>
+          </li>
+        </ul>
+        <!-- After login, show user menu -->
+        <div class="dropdown">
+          <button class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown">
+            <img src="../assets/driver.jpg" class="rounded-circle me-2" alt="Driver Profile"
+              style="width: 30px; height: 30px; object-fit: cover;">
+            <span>John Doe</span>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-end">
+            <li><a class="dropdown-item" href="profile-settings.html">Profile Settings</a></li>
+            <li><a class="dropdown-item" href="messages.html">Messages</a></li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            <li><a class="dropdown-item" href="../index.html">Logout</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container mt-4">
+    <div class="row">
+      <!-- Sidebar -->
+      <div class="col-md-3">
+        <div class="card">
+          <div class="card-body">
+            <div class="d-flex align-items-center mb-3">
+              <img src="../assets/driver.jpg" class="rounded-circle me-2" alt="Driver Profile"
+                style="width: 50px; height: 50px; object-fit: cover;">
+              <div>
+                <h6 class="mb-0">John Doe</h6>
+                <small class="text-muted">Driver</small>
+              </div>
+            </div>
+            <div class="list-group">
+              <a href="driver-dashboard.html" class="list-group-item list-group-item-action active">Dashboard</a>
+              <a href="ride-search.html" class="list-group-item list-group-item-action">My Rides</a>
+              <a href="messages.html" class="list-group-item list-group-item-action">Messages</a>
+              <a href="profile-settings.html" class="list-group-item list-group-item-action">Profile Settings</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Content -->
+      <div class="col-md-9">
+        <!-- Post New Ride Card -->
+        <div class="card mb-4">
+          <div class="card-header">
+            <h5 class="card-title mb-0">Post a New Ride</h5>
+          </div>
+          <div class="card-body">
+            <form>
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <label class="form-label">From</label>
+                  <input type="text" class="form-control" placeholder="Starting point">
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label class="form-label">To</label>
+                  <input type="text" class="form-control" placeholder="Destination">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <label class="form-label">Date</label>
+                  <input type="date" class="form-control">
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label class="form-label">Time</label>
+                  <input type="time" class="form-control">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <label class="form-label">Available Seats</label>
+                  <input type="number" class="form-control" min="1" max="8">
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label class="form-label">Price per Seat</label>
+                  <div class="input-group">
+                    <span class="input-group-text">$</span>
+                    <input type="number" class="form-control" step="0.01">
+                  </div>
+                </div>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Preferences</label>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="smoking">
+                  <label class="form-check-label" for="smoking">No Smoking</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="music">
+                  <label class="form-check-label" for="music">Music Allowed</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="women-only">
+                  <label class="form-check-label" for="women-only">Women Only</label>
+                </div>
+              </div>
+              <button type="submit" class="btn btn-primary">Post Ride</button>
+            </form>
+          </div>
+        </div>
+
+        <!-- Active Rides Card -->
+        <div class="card">
+          <div class="card-header">
+            <h5 class="card-title mb-0">Your Active Rides</h5>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Date</th>
+                    <th>From</th>
+                    <th>To</th>
+                    <th>Seats</th>
+                    <th>Price</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>2024-03-20</td>
+                    <td>City Center</td>
+                    <td>Airport</td>
+                    <td>3/4</td>
+                    <td>$15</td>
+                    <td><span class="badge bg-success">Active</span></td>
+                    <td>
+                      <button class="btn btn-sm btn-outline-primary">View</button>
+                      <button class="btn btn-sm btn-outline-danger">Cancel</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>2024-03-21</td>
+                    <td>Downtown</td>
+                    <td>University</td>
+                    <td>2/4</td>
+                    <td>$10</td>
+                    <td><span class="badge bg-warning">Pending</span></td>
+                    <td>
+                      <button class="btn btn-sm btn-outline-primary">View</button>
+                      <button class="btn btn-sm btn-outline-danger">Cancel</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../js/main.js"></script>
+</body>
+
+</html>

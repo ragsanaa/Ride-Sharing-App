@@ -1,0 +1,352 @@
+:root {
+  --primary-color: #2e8b57; /* Sea Green */
+  --primary-dark: #1f593a;
+  --primary-light: #3cab6e;
+  --success-color: #28a745;
+  --light-green: #e8f5e9;
+}
+
+.navbar {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: var(--primary-color) !important;
+}
+
+.hero-section {
+  position: relative;
+  background: var(--primary-color);
+  min-height: 100vh;
+}
+
+.hero-content {
+  color: white;
+}
+
+.hero-image {
+  position: relative;
+  z-index: 1;
+}
+
+/* Floating animation for the illustration */
+.floating-animation {
+  animation: floating 3s ease-in-out infinite;
+}
+
+@keyframes floating {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .hero-section {
+    text-align: center;
+  }
+
+  .hero-content .d-md-flex {
+    justify-content: center !important;
+  }
+}
+
+.modal-header {
+  background-color: #f8f9fa;
+}
+
+.form-label {
+  font-weight: 500;
+}
+
+.card {
+  margin-bottom: 1rem;
+  border: none;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+.card-header {
+  background-color: #fff;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.table {
+  font-size: 0.9rem;
+}
+
+.badge {
+  font-weight: 500;
+}
+
+.list-group-item.active {
+  background-color: var(--primary-color) !important;
+  border-color: var(--primary-color) !important;
+}
+
+.form-check {
+  margin-bottom: 0.5rem;
+}
+
+.ride-card {
+  transition: transform 0.2s;
+}
+
+.ride-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.ride-details {
+  font-size: 0.95rem;
+}
+
+.ride-tags .badge {
+  padding: 0.5em 1em;
+}
+
+.bi {
+  font-size: 1.1rem;
+}
+
+.pagination .page-link {
+  color: #0d6efd;
+}
+
+.pagination .page-item.active .page-link {
+  background-color: #0d6efd;
+  border-color: #0d6efd;
+}
+
+.route-line {
+  border-left: 2px dashed #dee2e6;
+  height: 20px;
+  margin-left: 7px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.rating-stars {
+  cursor: pointer;
+}
+
+.rating-stars .bi-star:hover,
+.rating-stars .bi-star.active {
+  fill: currentColor;
+}
+
+.upcoming-ride .card {
+  border-left: 4px solid #0d6efd;
+}
+
+.stats-card {
+  background: linear-gradient(to right, #0d6efd, #0a58ca);
+  color: white;
+}
+
+.table img {
+  width: 30px;
+  height: 30px;
+  object-fit: cover;
+}
+
+.profile-picture {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border: 3px solid #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.settings-nav .list-group-item i {
+  width: 20px;
+}
+
+.verification-status i {
+  font-size: 1.2rem;
+}
+
+.tab-content > .tab-pane {
+  display: none;
+}
+
+.tab-content > .active {
+  display: block;
+}
+
+.settings-nav .list-group-item {
+  border-radius: 0.25rem;
+  margin-bottom: 0.25rem;
+}
+
+.settings-nav .list-group-item.active {
+  background-color: #0d6efd;
+  border-color: #0d6efd;
+}
+
+/* Messages Page Styles */
+.messages-sidebar {
+  height: calc(100vh - 100px);
+  display: flex;
+  flex-direction: column;
+}
+
+.message-list {
+  overflow-y: auto;
+  flex-grow: 1;
+}
+
+.message-preview {
+  min-width: 0; /* Enables text truncation */
+}
+
+.chat-window {
+  height: calc(100vh - 100px);
+  display: flex;
+  flex-direction: column;
+}
+
+.chat-messages {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding: 1.5rem;
+  background-color: #f8f9fa;
+}
+
+.message {
+  margin-bottom: 1rem;
+  display: flex;
+}
+
+.message.sent {
+  justify-content: flex-end;
+}
+
+.message-content {
+  max-width: 70%;
+  padding: 0.75rem 1rem;
+  border-radius: 1rem;
+  position: relative;
+}
+
+.message.received .message-content {
+  background-color: #fff;
+  border: 1px solid #dee2e6;
+  border-top-left-radius: 0;
+}
+
+.message.sent .message-content {
+  background-color: var(--primary-color) !important;
+  color: white;
+  border-top-right-radius: 0;
+}
+
+.message.sent .message-content small {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.ride-info-card .card {
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+.message-form {
+  padding: 1rem;
+}
+
+.message-form .input-group {
+  background-color: #f8f9fa;
+  border-radius: 2rem;
+  padding: 0.5rem;
+}
+
+.message-form .form-control {
+  border: none;
+  background: none;
+}
+
+.message-form .form-control:focus {
+  box-shadow: none;
+}
+
+.message-form .btn {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .messages-sidebar,
+  .chat-window {
+    height: calc(50vh - 50px);
+  }
+}
+
+.btn-primary {
+  background-color: var(--primary-color) !important;
+  border-color: var(--primary-color) !important;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-dark) !important;
+  border-color: var(--primary-dark) !important;
+}
+
+.btn-outline-primary {
+  color: var(--primary-color) !important;
+  border-color: var(--primary-color) !important;
+}
+
+.btn-outline-primary:hover {
+  background-color: var(--primary-color) !important;
+  color: white !important;
+}
+
+.text-primary {
+  color: var(--primary-color) !important;
+}
+
+.bg-primary {
+  background-color: var(--primary-color) !important;
+}
+
+a {
+  color: var(--primary-color);
+}
+
+a:hover {
+  color: var(--primary-dark);
+}
+
+.form-control:focus {
+  border-color: var(--primary-light);
+  box-shadow: 0 0 0 0.25rem rgba(46, 139, 87, 0.25);
+}
+
+.progress-bar {
+  background-color: var(--primary-color);
+}
+
+.badge.bg-primary {
+  background-color: var(--primary-color) !important;
+}
+
+/* Custom button style for Find a Ride */
+.btn-find-ride {
+  background-color: white !important;
+  color: var(--primary-color) !important;
+  border-color: white !important;
+  font-weight: 500;
+}
+
+.btn-find-ride:hover {
+  background-color: var(--light-green) !important;
+  color: var(--primary-dark) !important;
+  border-color: var(--light-green) !important;
+}

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Commuter Dashboard - CarPool Connect</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+  <link href="../css/style.css" rel="stylesheet">
+</head>
+
+<body>
+  <!-- Navigation (same as index.html) -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <!-- ... existing code ... -->
+  </nav>
+
+  <div class="container mt-4">
+    <div class="row">
+      <!-- Sidebar -->
+      <div class="col-md-3">
+        <div class="card">
+          <div class="card-body">
+            <div class="d-flex align-items-center mb-3">
+              <img src="https://via.placeholder.com/50" class="rounded-circle me-2" alt="Profile">
+              <div>
+                <h6 class="mb-0">Sarah Smith</h6>
+                <small class="text-muted">Commuter</small>
+              </div>
+            </div>
+            <div class="list-group">
+              <a href="#" class="list-group-item list-group-item-action active">Dashboard</a>
+              <a href="#" class="list-group-item list-group-item-action">Upcoming Rides</a>
+              <a href="#" class="list-group-item list-group-item-action">Ride History</a>
+              <a href="#" class="list-group-item list-group-item-action">Messages</a>
+              <a href="#" class="list-group-item list-group-item-action">Profile Settings</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick Stats -->
+        <div class="card mt-3">
+          <div class="card-body">
+            <h6 class="card-title">Your Stats</h6>
+            <div class="d-flex justify-content-between mb-2">
+              <span>Total Rides</span>
+              <span class="fw-bold">23</span>
+            </div>
+            <div class="d-flex justify-content-between mb-2">
+              <span>CO₂ Saved</span>
+              <span class="fw-bold text-success">127 kg</span>
+            </div>
+            <div class="d-flex justify-content-between">
+              <span>Money Saved</span>
+              <span class="fw-bold text-primary">$345</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Content -->
+      <div class="col-md-9">
+        <!-- Upcoming Rides -->
+        <div class="card mb-4">
+          <div class="card-header d-flex justify-content-between align-items-center">
+            <h5 class="card-title mb-0">Upcoming Rides</h5>
+            <a href="#" class="btn btn-primary btn-sm">Find New Ride</a>
+          </div>
+          <div class="card-body">
+            <div class="upcoming-ride mb-3">
+              <div class="card">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-md-3">
+                      <div class="text-center text-md-start">
+                        <h6 class="mb-1">March 21, 2024</h6>
+                        <span class="text-muted">09:00 AM</span>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="ride-route">
+                        <div class="d-flex align-items-center">
+                          <i class="bi bi-circle text-success"></i>
+                          <div class="ms-2">Downtown</div>
+                        </div>
+                        <div class="route-line"></div>
+                        <div class="d-flex align-items-center">
+                          <i class="bi bi-geo-alt-fill text-danger"></i>
+                          <div class="ms-2">University Campus</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-3 text-md-end">
+                      <button class="btn btn-outline-danger btn-sm">Cancel Ride</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ride History -->
+        <div class="card">
+          <div class="card-header">
+            <h5 class="card-title mb-0">Recent Ride History</h5>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Date</th>
+                    <th>Route</th>
+                    <th>Driver</th>
+                    <th>Price</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Mar 18, 2024</td>
+                    <td>Airport → City Center</td>
+                    <td>
+                      <div class="d-flex align-items-center">
+                        <img src="https://via.placeholder.com/30" class="rounded-circle me-2" alt="Driver">
+                        John Doe
+                      </div>
+                    </td>
+                    <td>$15</td>
+                    <td><span class="badge bg-success">Completed</span></td>
+                    <td>
+                      <button class="btn btn-sm btn-outline-primary" data-bs-toggle="modal"
+                        data-bs-target="#rateRideModal">Rate</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Mar 15, 2024</td>
+                    <td>Mall → Suburbs</td>
+                    <td>
+                      <div class="d-flex align-items-center">
+                        <img src="https://via.placeholder.com/30" class="rounded-circle me-2" alt="Driver">
+                        Jane Smith
+                      </div>
+                    </td>
+                    <td>$12</td>
+                    <td><span class="badge bg-success">Completed</span></td>
+                    <td>
+                      <button class="btn btn-sm btn-outline-secondary" disabled>Rated ★★★★★</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Rate Ride Modal -->
+  <div class="modal fade" id="rateRideModal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Rate Your Ride</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <div class="text-center mb-3">
+            <div class="rating-stars fs-2">
+              <i class="bi bi-star text-warning"></i>
+              <i class="bi bi-star text-warning"></i>
+              <i class="bi bi-star text-warning"></i>
+              <i class="bi bi-star text-warning"></i>
+              <i class="bi bi-star text-warning"></i>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Your Review</label>
+            <textarea class="form-control" rows="3" placeholder="Share your experience..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary w-100">Submit Rating</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../js/main.js"></script>
+</body>
+
+</html>

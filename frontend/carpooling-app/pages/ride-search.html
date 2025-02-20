@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Find a Ride - CarPool Connect</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+  <link href="../css/style.css" rel="stylesheet">
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container">
+      <a class="navbar-brand" href="../index.html">CarPool Connect</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="../index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="ride-search.html">Find a Ride</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="driver-dashboard.html">Offer a Ride</a>
+          </li>
+        </ul>
+        <!-- After login, show user menu -->
+        <div class="dropdown">
+          <button class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown">
+            <img src="../assets/avatar.jpg" class="rounded-circle me-2" alt="User Profile"
+              style="width: 30px; height: 30px; object-fit: cover;">
+            <span>Sarah Smith</span>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-end">
+            <li><a class="dropdown-item" href="profile-settings.html">Profile Settings</a></li>
+            <li><a class="dropdown-item" href="messages.html">Messages</a></li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            <li><a class="dropdown-item" href="../index.html">Logout</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container mt-4">
+    <div class="row">
+      <!-- Search Filters Sidebar -->
+      <div class="col-md-3">
+        <div class="card">
+          <div class="card-header">
+            <h5 class="card-title mb-0">Search Filters</h5>
+          </div>
+          <div class="card-body">
+            <form>
+              <div class="mb-3">
+                <label class="form-label">From</label>
+                <input type="text" class="form-control" placeholder="Starting point">
+              </div>
+              <div class="mb-3">
+                <label class="form-label">To</label>
+                <input type="text" class="form-control" placeholder="Destination">
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Date</label>
+                <input type="date" class="form-control">
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Price Range</label>
+                <div class="d-flex gap-2">
+                  <input type="number" class="form-control" placeholder="Min">
+                  <input type="number" class="form-control" placeholder="Max">
+                </div>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Preferences</label>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="no-smoking">
+                  <label class="form-check-label" for="no-smoking">No Smoking</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="women-only">
+                  <label class="form-check-label" for="women-only">Women Only</label>
+                </div>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Driver Rating</label>
+                <select class="form-select">
+                  <option value="">Any Rating</option>
+                  <option value="4">4+ Stars</option>
+                  <option value="3">3+ Stars</option>
+                </select>
+              </div>
+              <button type="submit" class="btn btn-primary w-100">Apply Filters</button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- Search Results -->
+      <div class="col-md-9">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <h4>Available Rides</h4>
+          <div class="dropdown">
+            <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+              Sort by
+            </button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Price: Low to High</a></li>
+              <li><a class="dropdown-item" href="#">Price: High to Low</a></li>
+              <li><a class="dropdown-item" href="#">Departure Time</a></li>
+              <li><a class="dropdown-item" href="#">Rating</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Ride Cards -->
+        <div class="ride-list">
+          <!-- Ride Card 1 -->
+          <div class="card ride-card mb-3">
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-8">
+                  <div class="d-flex align-items-center mb-3">
+                    <img src="../assets/driver.jpg" class="rounded-circle me-2" alt="Driver Profile"
+                      style="width: 40px; height: 40px; object-fit: cover;">
+                    <div>
+                      <h6 class="mb-0">John Doe</h6>
+                      <div class="text-warning">
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-half"></i>
+                        <small class="text-muted">(4.5)</small>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="ride-details">
+                    <div class="d-flex mb-2">
+                      <i class="bi bi-geo-alt-fill text-primary me-2"></i>
+                      <div>
+                        <div>From: City Center</div>
+                        <div>To: Airport</div>
+                      </div>
+                    </div>
+                    <div class="d-flex mb-2">
+                      <i class="bi bi-clock-fill text-primary me-2"></i>
+                      <div>March 20, 2024 - 09:00 AM</div>
+                    </div>
+                  </div>
+                  <div class="ride-tags">
+                    <span class="badge bg-light text-dark me-2">
+                      <i class="bi bi-people-fill"></i> 3 seats left
+                    </span>
+                    <span class="badge bg-light text-dark me-2">
+                      <i class="bi bi-no-smoking"></i> No smoking
+                    </span>
+                  </div>
+                </div>
+                <div class="col-md-4 text-md-end">
+                  <h4 class="text-primary mb-3">$15</h4>
+                  <button class="btn btn-primary">Book Seat</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Ride Card 2 -->
+          <div class="card ride-card mb-3">
+            <!-- Similar structure as Ride Card 1 with different data -->
+          </div>
+        </div>
+
+        <!-- Pagination -->
+        <nav aria-label="Page navigation" class="mt-4">
+          <ul class="pagination justify-content-center">
+            <li class="page-item disabled">
+              <a class="page-link" href="#" tabindex="-1">Previous</a>
+            </li>
+            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item">
+              <a class="page-link" href="#">Next</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../js/main.js"></script>
+</body>
+
+</html>
